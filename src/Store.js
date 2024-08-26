@@ -6,6 +6,7 @@ export const store = reactive({
     searchMovie: "/search/movie",
     searchTv: "/search/tv",
     movieArray: [],
+    seriesArray: [],
     movieInput: '',
 
 })

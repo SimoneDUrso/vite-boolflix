@@ -1,48 +1,33 @@
 <script>
 import { store } from '../store';
+import Movie from './partials/Movie.vue';
+import Tv from './partials/Tv.vue';
 
 export default {
+    components: {
+        Movie,
+        Tv
+    },
+
     data() {
         return {
             store
         }
     },
+
     props: {
-        movie: Object
+        movie: Object,
+        series: Array
     },
-    methods: {
-        flags(lang) {
-            switch (lang) {
-                case 'it':
-                    return "fi fi-it"
-                case 'en':
-                    return "fi fi-gb"
-                case 'us':
-                    return "fi fi-us"
-                case 'ja':
-                    return "fi fi-jp"
-                default:
-                    return "other"
-            }
-        }
-    }
 }
 </script>
 <template>
     <div>
-        <ul v-for="movie, index in store.movieArray" :key="index">
-            <li> {{ movie.title }} </li>
-            <li> {{ movie.original_title }} </li>
-            <li> <i :class="flags(movie.original_language)"></i></li>
-            <li> {{ movie.vote_average }} </li>
-        </ul>
+        <h2>FILM</h2>
+        <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
+
+        <h2>SERIE</h2>
+        <Tv v-for="serie in series" :serie="serie" />
     </div>
 </template>
-<style lang="scss" scoped>
-.other {
-    width: 21px;
-    height: 16px;
-    border: 1px solid black;
-    display: flex;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -18,12 +18,19 @@ export default {
 
   methods: {
     getMovie(movie) {
-      let url = `${store.endPoint}${store.searchMovie}${store.keyApi}`
+      let urlMovie = `${store.endPoint}${store.searchMovie}${store.keyApi}`
 
-      axios.get(`${url}&query=${movie}`).then((result) => {
+      axios.get(`${urlMovie}&query=${movie}`).then((result) => {
         this.store.movieArray = result.data.results
         console.log(store.movieArray)
       })
+
+      let urlTv = `${store.endPoint}${store.searchTv}${store.keyApi}`
+      axios.get(`${urlTv}&query=${movie}`).then((result) => {
+        store.seriesArray = result.data.results
+        console.log(store.movieArray)
+      })
+
     }
   }
 }
@@ -32,7 +39,7 @@ export default {
 <template>
   <div>
     <Header @getMovie="getMovie" />
-    <Main :movie="store.movieArray" />
+    <Main :movie="store.movieArray" :series="store.seriesArray" />
   </div>
 </template>
 <style lang="scss">

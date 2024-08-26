@@ -35,7 +35,9 @@ crubs
 
 1 - Creiamo una funzione per assegnare una classe nei casi in cui la lingua originaria corrisponda a qualcosa in particolare;
 2 - Facciamo un'altra chiamata API per prendere le serie TV;
-3 - 
+3 - Facciamo altre due sotto-componenti per visualizzare i film e le serie;
+4 - Facciamo un nuovo array vuoto da riempire con le serie;
+5 - Creiamo un'altra props per mandare dati da App.vue a Main.vue;
 
 
 
