@@ -17,9 +17,12 @@ export default {
                     return "fi fi-it"
                 case 'en':
                     return "fi fi-gb"
-
+                case 'us':
+                    return "fi fi-us"
+                case 'ja':
+                    return "fi fi-jp"
                 default:
-                    break;
+                    return "other"
             }
         }
     }
@@ -35,4 +38,11 @@ export default {
         </ul>
     </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.other {
+    width: 21px;
+    height: 16px;
+    border: 1px solid black;
+    display: flex;
+}
+</style>
