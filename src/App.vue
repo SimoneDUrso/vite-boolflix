@@ -23,7 +23,6 @@ export default {
       axios.get(`${url}&query=${movie}`).then((result) => {
         this.store.movieArray = result.data.results
         console.log(store.movieArray)
-
       })
     }
   }

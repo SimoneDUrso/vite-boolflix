@@ -8,8 +8,9 @@ export default {
         }
     },
     props: {
-        movie: Array
-    }
+        movie: Object
+    },
+
 }
 </script>
 <template>
@@ -17,7 +18,7 @@ export default {
         <ul v-for="movie, index in store.movieArray" :key="index">
             <li> {{ movie.title }} </li>
             <li> {{ movie.original_title }} </li>
-            <li> {{ movie.original_language }} </li>
+            <li> <i :class="flags(movie.original_language)"></i></li>
             <li> {{ movie.vote_average }} </li>
         </ul>
     </div>
