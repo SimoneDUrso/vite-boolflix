@@ -15,7 +15,9 @@ film trovato:
 
 1 - Creo delle components "Header" e "Main";
 2 - Creo un input e un button nella component Header;
-3 - 
+3 - Creo due variabili nello store, un array vuoto e una stringa vuota;
+4 - Uso la striga vuota come v-model;
+5 - In App.vue faccio una chiamata axios dove concateno l'Url di partenza e il v-model;
 
 
 
