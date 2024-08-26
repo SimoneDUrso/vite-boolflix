@@ -1,11 +1,34 @@
 <script>
-import { Store } from "./Store";
+import { store } from "./store";
 import axios from "axios";
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
 
 export default {
   data() {
     return {
-      Store,
+      store,
+    }
+  },
+
+  components: {
+    Header,
+    Main
+  },
+
+  created() {
+    this.getMovie()
+  },
+
+  methods: {
+    getMovie(movie) {
+      let url = `${store.endPoint}${store.searchMovie}${store.keyApi}`
+
+      axios.get(`${url}&query=${movie}`).then((result) => {
+        this.store.movieArray = result.data.results
+        console.log(this.store.movieArray)
+
+      })
     }
   }
 }
@@ -13,9 +36,10 @@ export default {
 
 <template>
   <div>
-    ciao
+    <Header @getMovie="getMovie" />
+    <Main />
   </div>
 </template>
 <style lang="scss">
-@use "./style/Generals.scss"
+@use "./style/generals.scss";
 </style>
