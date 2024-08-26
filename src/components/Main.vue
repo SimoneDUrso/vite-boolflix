@@ -10,7 +10,19 @@ export default {
     props: {
         movie: Object
     },
+    methods: {
+        flags(lang) {
+            switch (lang) {
+                case 'it':
+                    return "fi fi-it"
+                case 'en':
+                    return "fi fi-gb"
 
+                default:
+                    break;
+            }
+        }
+    }
 }
 </script>
 <template>
