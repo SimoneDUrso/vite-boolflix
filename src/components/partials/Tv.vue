@@ -1,5 +1,5 @@
 <script>
-import { store } from '../../Store';
+import { store } from '../../micco';
 
 export default {
     data(){

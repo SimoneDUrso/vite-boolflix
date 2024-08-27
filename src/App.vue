@@ -1,5 +1,5 @@
 <script>
-import { store } from "./store";
+import { store } from "./micco";
 import axios from "axios";
 import Header from "./components/Header.vue";
 import Main from './components/Main.vue';
