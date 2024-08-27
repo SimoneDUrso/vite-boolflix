@@ -1,5 +1,5 @@
 <script>
-import { store } from '../micco.js'
+import { store } from '../store.js'
 
 export default {
     data() {

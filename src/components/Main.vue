@@ -1,5 +1,5 @@
 <script>
-import { store } from '../micco';
+import { store } from '../store';
 import Movie from './partials/Movie.vue';
 import Tv from './partials/Tv.vue';
 
