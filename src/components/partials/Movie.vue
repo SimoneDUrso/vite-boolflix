@@ -48,8 +48,8 @@ export default {
             <li> {{ movie.original_title }} </li>
             <li> <i :class="flags(movie.original_language)"></i></li>
             <li>Voto: <i v-for="star in stars(movie.vote_average)" :key="movie.id" class="fa-solid fa-star" >
-                <i v-for="star in (5 - stars(movie.vote_average))" :key="movie.id" class="fa-regular fa-star"></i>
             </i> 
+            <i v-for="star in (5 - stars(movie.vote_average))" :key="movie.id" class="fa-regular fa-star"></i>
             </li>
         </ul>
     </div>

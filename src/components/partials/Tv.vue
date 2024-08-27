@@ -26,18 +26,27 @@ export default {
                     return "other"
             }
         },
-        
+        getBackdropPath(path) {
+            return `https://image.tmdb.org/t/p/w342/${path}`;
+        },
+        stars(vote){
+            return Math.round(vote / 2)
+        },
     },
 }
 </script>
 
 <template>
     <div>
-        <ul>
+        <ul class="list-unstyled">
+            <li> <img :src="getBackdropPath(serie.backdrop_path)" alt="Backdrop Image" v-if="serie.backdrop_path" /></li>
             <li> {{ serie.name }} </li>
             <li> {{ serie.original_name }} </li>
             <li> <i :class="flags(serie.original_language)"></i></li>
-            <li> {{ serie.vote_average }} </li>
+            <li>Voto: <i v-for="star in stars(serie.vote_average)" :key="serie.id" class="fa-solid fa-star" >
+            </i> 
+            <i v-for="star in (5 - stars(serie.vote_average))" :key="serie.id" class="fa-regular fa-star"></i>
+            </li>
         </ul>
     </div>
 </template>
