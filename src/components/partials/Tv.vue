@@ -25,7 +25,8 @@ export default {
                 default:
                     return "other"
             }
-        }
+        },
+        
     },
 }
 </script>

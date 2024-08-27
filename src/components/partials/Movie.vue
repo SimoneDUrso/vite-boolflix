@@ -30,19 +30,27 @@ export default {
 
         getBackdropPath(path) {
             return `https://image.tmdb.org/t/p/w342/${path}`;
-        }
+        },
+
+        stars(vote){
+            return Math.round(vote / 2)
+        },
+        
     }
 }
 </script>
 
 <template>
-    <div class="bg-image">
+    <div class="bg-image border border-1 my-2">
         <ul class="list-unstyled">
             <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" v-if="movie.backdrop_path" /></li>
             <li> {{ movie.title }} </li>
             <li> {{ movie.original_title }} </li>
             <li> <i :class="flags(movie.original_language)"></i></li>
-            <li> {{ movie.vote_average }} </li>
+            <li>Voto: <i v-for="star in stars(movie.vote_average)" :key="movie.id" class="fa-solid fa-star" >
+                <i v-for="star in (5 - stars(movie.vote_average))" :key="movie.id" class="fa-regular fa-star"></i>
+            </i> 
+            </li>
         </ul>
     </div>
 </template>
