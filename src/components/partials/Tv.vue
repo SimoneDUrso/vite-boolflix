@@ -1,5 +1,13 @@
 <script>
+import { store } from '../../Store';
+
 export default {
+    data(){
+        return{
+            store
+        }
+    },
+
     props: {
         serie: Object
     },
@@ -32,6 +40,11 @@ export default {
         </ul>
     </div>
 </template>
-<style lang="">
-
+<style lang="scss" scoped>
+.other {
+    width: 21px;
+    height: 16px;
+    border: 1px solid black;
+    display: flex;
+}
 </style>

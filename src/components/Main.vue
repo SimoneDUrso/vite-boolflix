@@ -22,11 +22,11 @@ export default {
 }
 </script>
 <template>
-    <div>
-        <h2>FILM</h2>
+    <div class="container">
+        <h2>Movies</h2>
         <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
 
-        <h2>SERIE</h2>
+        <h2>Tv Series</h2>
         <Tv v-for="serie in series" :serie="serie" />
     </div>
 </template>

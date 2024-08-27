@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <template>
-    <div class="d-flex">
+    <div class="d-flex container">
         <input type="text" class="form-control" v-model="store.movieInput">
         <button @click="requestMovie(store.movieInput)" class="btn btn-lg btn-primary">Cerca</button>
     </div>

@@ -1,5 +1,13 @@
 <script>
+import { store } from '../../Store';
+
 export default {
+    data(){
+        return{
+            store
+        }
+    },
+
     props: {
         movie: Object
     },
@@ -18,14 +26,19 @@ export default {
                 default:
                     return "other"
             }
+        },
+
+        getBackdropPath(path) {
+            return `https://image.tmdb.org/t/p/w342/${path}`;
         }
     }
 }
 </script>
 
 <template>
-    <div>
-        <ul>
+    <div class="bg-image">
+        <ul class="list-unstyled">
+            <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" v-if="movie.backdrop_path" /></li>
             <li> {{ movie.title }} </li>
             <li> {{ movie.original_title }} </li>
             <li> <i :class="flags(movie.original_language)"></i></li>
