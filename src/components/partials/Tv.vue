@@ -43,7 +43,7 @@ export default {
 
 <template>
     <div class="col-3">
-        <div class="bg-image border border-1 my-2 p-2">
+        <div class="bg-image my-2 p-2">
             <ul class="list-unstyled">
                 <li> <img :src="getBackdropPath(serie.backdrop_path)" alt="Backdrop Image" class="img-fluid"/></li>
                 <li>Title: {{ serie.name }} </li>
@@ -67,5 +67,8 @@ export default {
 .col-3{
     min-height: 350px;
     display: flex;
+}
+.bg-image{
+    border: 1px solid #dc1a28;
 }
 </style>
