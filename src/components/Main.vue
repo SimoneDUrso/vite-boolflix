@@ -22,12 +22,15 @@ export default {
 }
 </script>
 <template>
-    <div class="container">
-        <h2>Movies</h2>
-        <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
-
-        <h2>Tv Series</h2>
-        <Tv v-for="serie in series" :serie="serie" />
+    <div class="container text-white">
+        <div class="row">
+            <h2>Movies</h2>
+                <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
+        </div>
+        <div class="row">
+            <h2>Tv Series</h2>
+            <Tv v-for="serie in series" :serie="serie" />
+        </div>
     </div>
 </template>
 <style lang="scss" scoped></style>

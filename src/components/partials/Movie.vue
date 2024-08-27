@@ -46,24 +46,31 @@ export default {
 </script>
 
 <template>
-    <div class="bg-image border border-1 my-2">
-        <ul class="list-unstyled">
-            <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" /></li>
-            <li> {{ movie.title }} </li>
-            <li> {{ movie.original_title }} </li>
-            <li> <i :class="flags(movie.original_language)"></i></li>
-            <li>Voto: <i v-for="star in stars(movie.vote_average)" :key="movie.id" class="fa-solid fa-star" >
-            </i> 
-            <i v-for="star in (5 - stars(movie.vote_average))" :key="movie.id" class="fa-regular fa-star"></i>
-            </li>
-        </ul>
-    </div>
+            <div class="col-3">
+                <div class="bg-image border border-1 my-2 p-2">
+                    <ul class="list-unstyled">
+                        <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" class="img-fluid"/></li>
+                        <li>Title: {{ movie.title }} </li>
+                        <li>Original title: {{ movie.original_title }} </li>
+                        <li>Language: <i :class="flags(movie.original_language)"></i></li>
+                        <li>Voto: <i v-for="star in stars(movie.vote_average)" :key="movie.id" class="fa-solid fa-star" >
+                        </i> 
+                        <i v-for="star in (5 - stars(movie.vote_average))" :key="movie.id" class="fa-regular fa-star"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 </template>
 <style lang="scss" scoped>
 .other {
     width: 21px;
     height: 16px;
-    border: 1px solid black;
+    border: 1px solid white;
+    display: flex;
+}
+
+.col-3{
+    min-height: 350px;
     display: flex;
 }
 </style>

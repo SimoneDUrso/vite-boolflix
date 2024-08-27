@@ -42,24 +42,30 @@ export default {
 </script>
 
 <template>
-    <div>
-        <ul class="list-unstyled">
-            <li> <img :src="getBackdropPath(serie.backdrop_path)" alt="Backdrop Image" /></li>
-            <li> {{ serie.name }} </li>
-            <li> {{ serie.original_name }} </li>
-            <li> <i :class="flags(serie.original_language)"></i></li>
-            <li>Voto: <i v-for="star in stars(serie.vote_average)" :key="serie.id" class="fa-solid fa-star" >
-            </i> 
-            <i v-for="star in (5 - stars(serie.vote_average))" :key="serie.id" class="fa-regular fa-star"></i>
-            </li>
-        </ul>
+    <div class="col-3">
+        <div class="bg-image border border-1 my-2 p-2">
+            <ul class="list-unstyled">
+                <li> <img :src="getBackdropPath(serie.backdrop_path)" alt="Backdrop Image" class="img-fluid"/></li>
+                <li>Title: {{ serie.name }} </li>
+                <li>Original title: {{ serie.original_name }} </li>
+                <li>Language: <i :class="flags(serie.original_language)"></i></li>
+                <li>Voto: <i v-for="star in stars(serie.vote_average)" :key="serie.id" class="fa-solid fa-star" >
+                </i> 
+                <i v-for="star in (5 - stars(serie.vote_average))" :key="serie.id" class="fa-regular fa-star"></i>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
 .other {
     width: 21px;
     height: 16px;
-    border: 1px solid black;
+    border: 1px solid white;
+    display: flex;
+}
+.col-3{
+    min-height: 350px;
     display: flex;
 }
 </style>
