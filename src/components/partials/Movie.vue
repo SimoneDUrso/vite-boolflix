@@ -29,7 +29,12 @@ export default {
         },
 
         getBackdropPath(path) {
-            return `https://image.tmdb.org/t/p/w342/${path}`;
+            if(path == null ){
+                return `https://placehold.co/342x192?text=Copertina%20non%20trovata`
+            }
+            else{
+                return `https://image.tmdb.org/t/p/w342/${path}`;
+            }
         },
 
         stars(vote){
@@ -43,7 +48,7 @@ export default {
 <template>
     <div class="bg-image border border-1 my-2">
         <ul class="list-unstyled">
-            <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" v-if="movie.backdrop_path" /></li>
+            <li> <img :src="getBackdropPath(movie.backdrop_path)" alt="Backdrop Image" /></li>
             <li> {{ movie.title }} </li>
             <li> {{ movie.original_title }} </li>
             <li> <i :class="flags(movie.original_language)"></i></li>
