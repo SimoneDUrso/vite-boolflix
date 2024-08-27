@@ -22,7 +22,7 @@ export default {
 }
 </script>
 <template>
-    <div class="container-fluid ps-5 text-white">
+    <div class="container ps-5 text-white">
         <div class="row">
             <h2>Movies</h2>
                 <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />

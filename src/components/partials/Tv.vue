@@ -76,6 +76,7 @@ export default {
     .movie-image {
         position: relative;
         cursor: pointer;
+        border: 1px solid white;
     }
 
     .movie-description {

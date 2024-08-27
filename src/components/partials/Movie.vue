@@ -74,12 +74,13 @@ export default {
 }
 
 .col-3{
-    min-height: 350px;
+    min-height: 250px;
     display: flex;
     
     .movie-image {
         position: relative;
         cursor: pointer;
+        border: 1px solid #dc1a28;
     }
 
     .movie-description {
