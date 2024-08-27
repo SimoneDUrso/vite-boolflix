@@ -76,10 +76,10 @@ export default {
 .col-3{
     min-height: 350px;
     display: flex;
-    cursor: pointer;
-
+    
     .movie-image {
         position: relative;
+        cursor: pointer;
     }
 
     .movie-description {
@@ -100,8 +100,6 @@ export default {
         visibility: visible;
     }
 
-    .bg-image{
-        border: 1px solid #dc1a28;
-    }
+    
 }
 </style>
