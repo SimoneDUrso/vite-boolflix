@@ -22,8 +22,8 @@ export default {
                 <img src="https://boolfix-jdonzelli.netlify.app/img/logo.png" alt="">
             </div>
             <div class="col-6 d-flex align-items-center">
-                <input @keyup.enter="requestMovie(store.movieInput)" type="text" class="form-control h-50" v-model="store.movieInput" placeholder="Search">
-                <button @click="requestMovie(store.movieInput)" class="btn btn-md btn-primary h-50">Cerca</button>
+                <input @keyup.enter="requestMovie(store.movieInput)" type="text" class="form-control h-50" v-model="store.movieInput" placeholder="Search films or Tv series">
+                <button @click="requestMovie(store.movieInput)" class="btn btn-sm btn-white h-50 text-danger"><i class="fa-solid fa-magnifying-glass fs-4 ms-2"></i></button>
             </div>
         </div>
     </div>
