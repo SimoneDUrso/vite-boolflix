@@ -8,4 +8,5 @@ export const store = reactive({
     movieArray: [],
     seriesArray: [],
     movieInput: '',
+    topRatedArray: [],
 })

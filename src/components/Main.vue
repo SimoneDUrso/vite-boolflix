@@ -2,11 +2,13 @@
 import { store } from '../store';
 import Movie from './partials/Movie.vue';
 import Tv from './partials/Tv.vue';
+import topRated from './partials/topRated.vue';
 
 export default {
     components: {
         Movie,
-        Tv
+        Tv,
+        topRated
     },
 
     data() {
@@ -17,7 +19,9 @@ export default {
 
     props: {
         movie: Object,
-        series: Array
+        series: Array,
+        topRated: Array,
+        showTopRated: Boolean
     },
 }
 </script>
@@ -25,6 +29,7 @@ export default {
     <div class="container ps-5 text-white">
         <div class="row mt-5">
             <h2>Movies</h2>
+                <topRated v-if="showTopRated" v-for="(topFilm, index) in topRated" :topFilm="topFilm" :key="index"/>
                 <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
         </div>
         <div class="row mt-5">
