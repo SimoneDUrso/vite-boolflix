@@ -26,9 +26,9 @@ export default {
                     return "other"
             }
         },
-        getBackdropPath(path) {
+        getposterPath(path) {
             if(path == null ){
-                return `https://placehold.co/342x192?text=Copertina%20non%20trovata`
+                return `https://placehold.co/300x450?text=Copertina%20non%20trovata`
             }
             else{
                 return `https://image.tmdb.org/t/p/w342/${path}`;
@@ -43,22 +43,23 @@ export default {
 
 <template>
     <div class="col-3">
-        <div class="bg-image my-2 p-2">
-        <div class="movie-image">
-            <img :src="getBackdropPath(serie.backdrop_path)" alt="Backdrop Image" class="img-fluid"/>
-            <div class="movie-description p-2">
-                <ul class="list-unstyled">
-                    <li>Title: {{ serie.name }} </li>
-                    <li>Original title: {{ serie.original_name }} </li>
-                    <li>Language: <i :class="flags(serie.original_language)"></i></li>
-                    <li>Voto: 
-                        <i v-for="star in stars(serie.vote_average)" :key="`star-full-${star}`" class="fa-solid fa-star"></i> 
-                        <i v-for="star in (5 - stars(serie.vote_average))" :key="`star-empty-${star}`" class="fa-regular fa-star"></i>
-                    </li>
-                </ul>
+        <div class="card bg-dark text-white my-2">
+            <div class="movie-image rounded-3">
+                <img :src="getposterPath(serie.poster_path)" alt="Poster Image" class="rounded-3"/>
+                <div class="card-img-overlay movie-description">
+                    <ul class="list-unstyled">
+                        <li><strong>Title:</strong> {{ serie.name }} </li>
+                        <li><strong>Original title:</strong> {{ serie.original_name }} </li>
+                        <li><strong>Language:</strong> <i :class="flags(serie.original_language)"></i></li>
+                        <li><strong>Voto:</strong> 
+                            <i v-for="star in stars(serie.vote_average)" :key="`star-full-${star}`" class="fa-solid fa-star"></i> 
+                            <i v-for="star in (5 - stars(serie.vote_average))" :key="`star-empty-${star}`" class="fa-regular fa-star"></i>
+                        </li>
+                        <li><strong>Overview:</strong> {{ serie.overview }} </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -70,13 +71,20 @@ export default {
 }
 
 .col-3{
-    min-height: 350px;
     display: flex;
     
     .movie-image {
         position: relative;
         cursor: pointer;
-        border: 1px solid white;
+        border: 2px solid black;
+        height: 400px;
+        width: 300px;
+
+        img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
     }
 
     .movie-description {
@@ -90,6 +98,8 @@ export default {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+        max-height: 100%; 
+        overflow-y: auto;
     }
 
     .movie-image:hover .movie-description {

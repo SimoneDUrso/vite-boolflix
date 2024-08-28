@@ -23,15 +23,18 @@ export default {
 </script>
 <template>
     <div class="container ps-5 text-white">
-        <div class="row">
+        <div class="row mt-5">
             <h2>Movies</h2>
                 <Movie v-for="movie, index in store.movieArray" :movie="movie" :key="index" />
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <h2>Tv Series</h2>
             <Tv v-for="serie in series" :serie="serie" />
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
+h2{
+    color: #dc1a28;
+}
 </style>

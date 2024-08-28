@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <template>
-    <div class="d-flex container bg-dark">
+    <div class="d-flex container-full bg-dark px-5">
         <div class="w-100 row justify-content-between">
             <div class="col-6">
                 <img src="https://boolfix-jdonzelli.netlify.app/img/logo.png" alt="">
