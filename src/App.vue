@@ -23,8 +23,11 @@ export default {
 
   methods: {
     getMovie(movie) {
-      if(store.movieInput === ''){
-        this.showTopRated = !this.showTopRated
+      if(movie === ''){
+        this.showTopRated = true;
+      }
+      else {
+        this.showTopRated = false;
       }
 
       let urlMovie = `${store.endPoint}${store.searchMovie}${store.keyApi}`
@@ -39,13 +42,16 @@ export default {
         store.seriesArray = result.data.results
         console.log(store.seriesArray)
       });
-
-      this.showTopRated = false;
     },
 
     topRatedMovies() {
-      let url = `https://api.themoviedb.org/3/movie/top_rated${store.keyApi}`;
-      axios.get(url).then((result) => {
+      let urlMovie = `https://api.themoviedb.org/3/movie/top_rated${store.keyApi}`;
+      axios.get(urlMovie).then((result) => {
+      this.store.topRatedArray = result.data.results;
+    });
+
+    let urlSeries = `https://api.themoviedb.org/3/serie/top_rated${store.keyApi}`;
+      axios.get(urlSeries).then((result) => {
       this.store.topRatedArray = result.data.results;
     });
   }
